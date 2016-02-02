@@ -1,5 +1,9 @@
 # play-json-sealed
 
+[![Flattr this](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sciss&url=https%3A%2F%2Fgithub.com%2FSciss%2Fplay-json-sealed&title=play-json-sealed&language=Scala&tags=github&category=software)
+[![Build Status](https://travis-ci.org/Sciss/play-json-sealed.svg?branch=master)](https://travis-ci.org/Sciss/play-json-sealed)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sciss/play-json-sealed_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sciss/play-json-sealed_2.11)
+
 ## statement
 
 This project is meant as an extension for the `Json.format` macro in the JSON library of the [play framework](https://github.com/mandubian/play-json-alone) which  generates automatic JSON serializers. It provides a new macro `AutoFormat` which supports sealed trait types and falls back to the original macro for other types.
@@ -19,6 +23,10 @@ The current version `v` is `"0.2.0"`
 The following resolver must be added to find the `play-json` dependency:
 
     "Typesafe Releases" at "https://repo.typesafe.com/typesafe/maven-releases/"
+
+## contributing
+
+Please see the file [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## example
 
