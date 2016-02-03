@@ -8,7 +8,7 @@ organization in ThisBuild := "de.sciss"
 
 scalaVersion in ThisBuild := "2.11.7"
 
-crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.4")
+crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.6")
 
 description  in ThisBuild := "Automatic formats for case classes based on Play-JSON"
 
