@@ -25,7 +25,7 @@ object Build extends sbt.Build {
       ivyConfigurations += config("compile-only").hide,
       // needs paradise for quasi-quotes
       resolvers += Resolver.sonatypeRepo("releases"),
-      addCompilerPlugin("org.scalamacros" % "paradise" % "2.0.0" cross CrossVersion.full),
+      addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full),
       libraryDependencies ++= {
         val sq0 = if (scalaVersion.value startsWith "2.10")
           ("org.scalamacros" %% "quasiquotes" % "2.0.0" % nameCompileOnly) :: Nil
@@ -33,7 +33,7 @@ object Build extends sbt.Build {
           Nil
 
         sq0 ++ Seq(
-          "com.typesafe.play" %% "play-json" % "2.3.0"
+          "com.typesafe.play" %% "play-json" % "2.3.10"
           // "org.scalatest" %% "scalatest" % "2.2.0" % "test"
         )
       },
@@ -69,7 +69,7 @@ object Build extends sbt.Build {
     base          = file("test"),
     dependencies  = Seq(core),
     settings      = /* Defaults.coreDefaultSettings ++ */ Project.defaultSettings ++ Seq(
-      libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test",
+      libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test",
       publish := {},
       publishArtifact := false,
       packagedArtifacts := Map.empty           // prevent publishing anything!
