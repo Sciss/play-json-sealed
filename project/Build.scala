@@ -28,7 +28,7 @@ object Build extends sbt.Build {
       addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full),
       libraryDependencies ++= {
         val sq0 = if (scalaVersion.value startsWith "2.10")
-          ("org.scalamacros" %% "quasiquotes" % "2.0.0" % nameCompileOnly) :: Nil
+          ("org.scalamacros" %% "quasiquotes" % "2.1.0" % nameCompileOnly) :: Nil
         else
           Nil
 
