@@ -1,10 +1,12 @@
 package de.sciss.play.json
 
 import java.io.File
+
+import play.api.libs.json.{Reads, Format}
+
 import scala.annotation.switch
-import collection.immutable.{IndexedSeq => Vec}
-import language.implicitConversions
-import play.api.libs.json.Format
+import scala.collection.immutable.{IndexedSeq => Vec}
+import scala.language.implicitConversions
 
 object Analysis {
   object Function {
@@ -56,12 +58,18 @@ object Analysis {
 }
 
 object ConfigTest {
-  import Formats.{FileFormat, Tuple2Format}
   import Analysis._
+  import Formats.{FileFormat, Tuple2Format, VecFormat, OptionFormat}
   implicit val fmtFun : Format[Function]                  = AutoFormat[Function]
   implicit val fmtCfg : Format[Config]                    = AutoFormat[Config]
   // val fmtProd: Format[Product]                   = implicitly[Format[Product]]
   // implicit val fmtCfgs: Format[Vec[(Config, Vec[Long])]]  = IndexedSeq[(Config, Vec[Long])]
 
+  // implicit def fmtOption[A](implicit peer: Format[A]): Format[Option[A]] = ???
+
+  implicitly[Format[Vec[Long]]]
+  implicitly[Format[Product]]
+  implicitly[Reads[Option[String]]]
+  implicitly[Format[(Config, Option[Product])]]
   implicitly[Format[Vec[ConfigAndProduct]]]
 }

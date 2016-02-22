@@ -2,7 +2,7 @@
  * Formats.scala
  * (play-json-sealed)
  *
- * Copyright (c) 2013-2014 Hanns Holger Rutz. All rights reserved.
+ * Copyright (c) 2013-2016 Hanns Holger Rutz. All rights reserved.
  *
  * This software is published under the GNU Lesser General Public License v2.1+
  *
@@ -14,9 +14,11 @@
 package de.sciss.play.json
 
 import java.io.File
-import collection.immutable.{IndexedSeq => Vec}
-import play.api.libs.json.{JsError, JsResult, JsValue, Format, JsArray, JsSuccess, JsString}
+
+import play.api.libs.json.{JsNull, Format, JsArray, JsError, JsResult, JsString, JsSuccess, JsValue}
+
 import scala.annotation.tailrec
+import scala.collection.immutable.{IndexedSeq => Vec}
 
 /** The object contains some additional formats for common types. */
 object Formats {
@@ -36,8 +38,8 @@ object Formats {
     def reads(json: JsValue): JsResult[(T1, T2)] = json match {
       case arr: JsArray =>
         for {
-          _1r <- _1.reads(arr(0))
-          _2r <- _2.reads(arr(1))
+          _1r <- arr(0).validate(_1) // .reads(_1e)
+          _2r <- arr(1).validate(_2) // _2.reads(_2e)
         } yield
           (_1r, _2r)
 
@@ -80,5 +82,22 @@ object Formats {
     }
 
     def writes(xs: Vec[A]): JsValue = JsArray(xs.map(peer.writes))
+  }
+
+  /** This was idiotically removed in
+    * https://github.com/playframework/playframework/pull/3521
+    */
+  implicit def OptionFormat[A](implicit peer: Format[A]): Format[Option[A]] = new OptionFormat[A]
+
+  private final class OptionFormat[A](implicit peer: Format[A]) extends Format[Option[A]] {
+    def reads(json: JsValue): JsResult[Option[A]] = {
+      // peer.reads(json).fold(e => JsSuccess(None), v => JsSuccess(Some(v)))
+      json match {
+        case JsNull => JsSuccess(None)
+        case _      => peer.reads(json).map(Some(_))
+      }
+    }
+
+    def writes(opt: Option[A]): JsValue = opt.fold[JsValue](JsNull)(peer.writes)
   }
 }

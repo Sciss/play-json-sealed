@@ -2,7 +2,7 @@
  * AutoFormat.scala
  * (play-json-sealed)
  *
- * Copyright (c) 2013-2014 Hanns Holger Rutz. All rights reserved.
+ * Copyright (c) 2013-2016 Hanns Holger Rutz. All rights reserved.
  *
  * This software is published under the GNU Lesser General Public License v2.1+
  *

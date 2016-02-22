@@ -18,7 +18,7 @@ To use the library in your project:
 
     "de.sciss" %% "play-json-sealed" % v
 
-The current version `v` is `"0.2.0"`
+The current version `v` is `"0.3.0"`, corresponding with play-json version 2.4.6.
 
 The following resolver must be added to find the `play-json` dependency:
 
@@ -35,6 +35,7 @@ Examples are provided by way of test sources (`sbt test`). Basically you get a f
 - `FileFormat` for `java.io.File`
 - `Tuple2Format` for any `Tuple2`, given that its type parameters have implicit formats
 - `VecFormat` for a `collection.immutable.IndexedSeq`, given that its element type has an implicit format
+- `OptionFormat` for any `Option` - this was stupidly removed from Play-JSON in 2.4.x.
 
 ## limitations and issues
 
