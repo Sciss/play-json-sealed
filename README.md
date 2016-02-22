@@ -18,7 +18,9 @@ To use the library in your project:
 
     "de.sciss" %% "play-json-sealed" % v
 
-The current version `v` is `"0.3.0"`, corresponding with play-json version 2.4.6.
+The current version `v` is `"0.4.0"`, corresponding with play-json version 2.3.10, the
+last to support Java 6 and 7. We are currently not interested in supporting
+Play 2.4.6 because of its incompatibility with Java 6/7.
 
 The following resolver must be added to find the `play-json` dependency:
 

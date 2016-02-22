@@ -1,7 +1,7 @@
 lazy val projectName      = "play-json-sealed"
 
-lazy val projectVersion   = "0.3.0"
-lazy val playVersion      = "2.4.6"
+lazy val projectVersion   = "0.4.0"
+lazy val playVersion      = "2.3.10" // they dropped Java 6/7 support! NOT: "2.4.6"
 lazy val scalaTestVersion = "2.2.6"
 lazy val paradiseVersion  = "2.1.0"
 
