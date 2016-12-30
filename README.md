@@ -12,19 +12,15 @@ It is released under the [GNU Lesser General Public License](https://raw.github.
 
 ## requirements / installation
 
-This project currently compiles against Scala 2.11 and 2.10 using sbt 0.13.
+This project currently compiles against Scala 2.12, 2.11, 2.10 using sbt 0.13.
 
 To use the library in your project:
 
     "de.sciss" %% "play-json-sealed" % v
 
-The current version `v` is `"0.4.0"`, corresponding with play-json version 2.3.10, the
-last to support Java 6 and 7. We are currently not interested in supporting
-Play 2.4.6 because of its incompatibility with Java 6/7.
-
-The following resolver must be added to find the `play-json` dependency:
-
-    "Typesafe Releases" at "https://repo.typesafe.com/typesafe/maven-releases/"
+The current version `v` is `"0.4.1"`, corresponding with play-json version 2.3.10 for Scala 2.10 and 2.11, the
+last to support Java 6 and 7. We are using play-json version 2.6.0-M1 as the only available version published for Scala 2.12,
+where Java 8 is already mandatory.
 
 ## contributing
 
