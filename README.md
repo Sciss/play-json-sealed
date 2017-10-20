@@ -1,6 +1,5 @@
 # play-json-sealed
 
-[![Flattr this](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sciss&url=https%3A%2F%2Fgithub.com%2FSciss%2Fplay-json-sealed&title=play-json-sealed&language=Scala&tags=github&category=software)
 [![Build Status](https://travis-ci.org/Sciss/play-json-sealed.svg?branch=master)](https://travis-ci.org/Sciss/play-json-sealed)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sciss/play-json-sealed_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sciss/play-json-sealed_2.11)
 
